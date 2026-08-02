@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — PrepTrack</title>
+<meta name="description" content="PrepTrack's privacy policy: what data the app collects (nothing, by default), what optional Google Drive backup can and can't access, and that there's no analytics or telemetry.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%236C5CE7%22/><text x=%2250%22 y=%2266%22 font-size=%2260%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22>P</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gradient-start: #6C5CE7;
+    --gradient-end: #FF6B9D;
+    --bg: #FFFBFE;
+    --surface: #FFFFFF;
+    --text: #1C1424;
+    --text-muted: #7A6B85;
+    --border: #EFE7F5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #131316;
+      --surface: #1B1B1F;
+      --text: #E5E1E9;
+      --text-muted: #C9C5D0;
+      --border: #322F38;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  header {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    padding: 48px 24px 40px;
+    text-align: center;
+    color: #fff;
+  }
+  .logo-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.16);
+    margin-bottom: 12px;
+    font-weight: 800;
+    font-size: 22px;
+  }
+  header h1 {
+    margin: 0 0 4px;
+    font-size: 1.9rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+  header p {
+    margin: 0;
+    opacity: 0.9;
+    font-size: 0.95rem;
+  }
+  main {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 40px 24px 64px;
+  }
+  section {
+    margin-bottom: 32px;
+  }
+  section h2 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 0 0 10px;
+    color: var(--text);
+  }
+  section p {
+    margin: 0 0 12px;
+    color: var(--text);
+    font-size: 0.98rem;
+  }
+  section p:last-child { margin-bottom: 0; }
+  a { color: var(--gradient-start); }
+  footer {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 24px 48px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-mark">P</div>
+  <h1>Privacy Policy</h1>
+  <p>PrepTrack — Last updated: August 2, 2026</p>
+</header>
+
+<main>
+
+<section>
+  <h2>Overview</h2>
+  <p>PrepTrack is built local-first: your plan, tasks, notes, practice history, interview tracker,
+  and every other piece of app data lives in a database on your own device. Nothing is uploaded to
+  any server operated by PrepTrack, because no such server exists — this is a single-developer app
+  with no backend.</p>
+</section>
+
+<section>
+  <h2>What we collect</h2>
+  <p>Nothing, by default. PrepTrack works fully as a guest with zero data ever leaving your device,
+  and contains no analytics or telemetry SDK of any kind — we have no way to see how you use the
+  app, and don't try to.</p>
+  <p>If you choose to sign in with Google, PrepTrack reads your Google account's name, email
+  address, and profile photo (via Android's Credential Manager) to show your profile inside the
+  app. This stays on your device; it's never sent anywhere else.</p>
+</section>
+
+<section>
+  <h2>Google Drive backup (optional)</h2>
+  <p>If you turn on cloud backup, PrepTrack requests Google Drive's private
+  <code>appDataFolder</code> scope only — a hidden folder that doesn't appear in your regular Drive
+  and that no other app, including Google Drive's own app, can browse. PrepTrack cannot see, read,
+  or modify any other file in your Drive.</p>
+  <p>The only thing written there is your own PrepTrack backup (the same data already on your
+  device). Turning off sync or signing out doesn't delete that backup — remove it yourself from your
+  Google Account's "Manage third-party apps &amp; services" page if you want it gone.</p>
+</section>
+
+<section>
+  <h2>Sharing with third parties</h2>
+  <p>None. PrepTrack doesn't sell, share, or transmit your data to any third party, doesn't show
+  ads, and doesn't use any advertising or analytics network.</p>
+</section>
+
+<section>
+  <h2>Data deletion</h2>
+  <p>Uninstalling PrepTrack deletes everything stored on your device immediately — there's no server
+  copy to also clean up. If you enabled Drive backup, delete that file separately from your Google
+  Account's connected-apps page.</p>
+</section>
+
+<section>
+  <h2>Changes to this policy</h2>
+  <p>If this policy changes, the "last updated" date at the top of this page changes with it.
+  Continuing to use the app after an update means you accept the revision.</p>
+</section>
+
+<section>
+  <h2>Contact</h2>
+  <p>Questions about this policy or your data:
+  <a href="mailto:support.preptrack@gmail.com">support.preptrack@gmail.com</a>.</p>
+</section>
+
+</main>
+
+<footer>
+  This page mirrors the Privacy Policy shown inside the PrepTrack app (Profile → Privacy Policy).
+</footer>
+
+</body>
+</html>
