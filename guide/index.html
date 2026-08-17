@@ -1,0 +1,857 @@
+<title>User Guide — PrepTrack</title>
+<meta name="description" content="How to use every part of PrepTrack: plans, Timeline, Practice, Notes, Resources, Interview Tracker, Focus Timer, Reports, reminders, backup, and settings.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 108 108'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='108' y2='108' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23667EEA'/%3E%3Cstop offset='1' stop-color='%23764BA2'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='108' height='108' rx='24' fill='url(%23g)'/%3E%3Cpath d='M28,68 L28,74 A4,4 0 0,0 32,78 L34,78 A4,4 0 0,0 38,74 L38,68 A4,4 0 0,0 34,64 L32,64 A4,4 0 0,0 28,68 Z' fill='%23fff' fill-opacity='.55'/%3E%3Cpath d='M44,58 L44,74 A4,4 0 0,0 48,78 L50,78 A4,4 0 0,0 54,74 L54,58 A4,4 0 0,0 50,54 L48,54 A4,4 0 0,0 44,58 Z' fill='%23fff' fill-opacity='.7'/%3E%3Cpath d='M60,48 L60,74 A4,4 0 0,0 64,78 L66,78 A4,4 0 0,0 70,74 L70,48 A4,4 0 0,0 66,44 L64,44 A4,4 0 0,0 60,48 Z' fill='%23fff' fill-opacity='.85'/%3E%3Cpath d='M76,38 L76,74 A4,4 0 0,0 80,78 L82,78 A4,4 0 0,0 86,74 L86,38 A4,4 0 0,0 82,34 L80,34 A4,4 0 0,0 76,38 Z' fill='%23fff'/%3E%3Cpath d='M62,33 a12,12 0 1,0 24,0 a12,12 0 1,0 -24,0 Z' fill='%23fff' stroke='%234A2F8F' stroke-width='2.2'/%3E%3Cpath d='M67,34 L72,39 L82,27' stroke='%234A2F8F' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+<style>
+  :root {
+    --accent-start: #6C5CE7;
+    --accent-end: #FF6B9D;
+    --bg: #FFFBFE;
+    --surface: #FFFFFF;
+    --surface-alt: #F7F1FB;
+    --text: #1C1424;
+    --text-muted: #7A6B85;
+    --border: #EFE7F5;
+    --code-bg: #F1EAF8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #131316;
+      --surface: #1B1B1F;
+      --surface-alt: #201E27;
+      --text: #E5E1E9;
+      --text-muted: #C9C5D0;
+      --border: #322F38;
+      --code-bg: #26222E;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #131316;
+    --surface: #1B1B1F;
+    --surface-alt: #201E27;
+    --text: #E5E1E9;
+    --text-muted: #C9C5D0;
+    --border: #322F38;
+    --code-bg: #26222E;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+  }
+  body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+  }
+  a { color: var(--accent-start); }
+  :focus-visible { outline: 2px solid var(--accent-start); outline-offset: 2px; }
+
+  /* ---------- Header ---------- */
+  header.hero {
+    background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
+    padding: 40px 24px 36px;
+    color: #fff;
+  }
+  .hero-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .logo-mark {
+    display: inline-flex;
+    width: 46px;
+    height: 46px;
+    flex-shrink: 0;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.2));
+  }
+  .logo-mark svg { width: 100%; height: 100%; }
+  .hero-text h1 {
+    margin: 0 0 4px;
+    font-size: 1.7rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  .hero-text p {
+    margin: 0;
+    opacity: 0.92;
+    font-size: 0.95rem;
+  }
+  .hero-links {
+    margin-left: auto;
+    display: flex;
+    gap: 8px;
+    font-size: 0.85rem;
+  }
+  .hero-links a {
+    color: #fff;
+    text-decoration: none;
+    background: rgba(0, 0, 0, 0.16);
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-weight: 600;
+  }
+  .hero-links a:hover { background: rgba(0, 0, 0, 0.28); }
+
+  /* ---------- Layout ---------- */
+  .layout {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 36px 24px 80px;
+    display: grid;
+    grid-template-columns: 240px minmax(0, 700px);
+    gap: 56px;
+    justify-content: center;
+  }
+  @media (max-width: 880px) {
+    .layout { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- Sidebar / TOC ---------- */
+  nav.toc {
+    position: sticky;
+    top: 24px;
+    align-self: start;
+    max-height: calc(100vh - 48px);
+    overflow-y: auto;
+  }
+  @media (max-width: 880px) {
+    nav.toc { position: static; max-height: none; margin-bottom: 12px; }
+  }
+  nav.toc details.toc-group {
+    margin-bottom: 4px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 10px;
+  }
+  nav.toc details.toc-group:last-child { border-bottom: none; }
+  nav.toc summary {
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 0 8px;
+    font-size: 1.05rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    color: var(--text);
+  }
+  nav.toc summary::-webkit-details-marker { display: none; }
+  nav.toc summary::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 6px solid var(--accent-start);
+    border-top: 4.5px solid transparent;
+    border-bottom: 4.5px solid transparent;
+    transition: transform 0.15s ease;
+    flex-shrink: 0;
+  }
+  nav.toc details.toc-group[open] summary::before { transform: rotate(90deg); }
+  nav.toc ul { list-style: none; margin: 0 0 4px; padding: 0 0 0 14px; }
+  nav.toc li { margin: 0; }
+  nav.toc a {
+    display: block;
+    padding: 6px 0;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.88rem;
+  }
+  nav.toc a:hover { color: var(--text); }
+
+  /* ---------- Main content ---------- */
+  main { min-width: 0; }
+  .intro-note {
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px 18px;
+    margin: 0 0 40px;
+    font-size: 0.92rem;
+    color: var(--text-muted);
+  }
+  .intro-note strong { color: var(--text); }
+
+  .content-group { margin-bottom: 56px; }
+  .content-group:not(:first-child) { padding-top: 12px; border-top: 1px solid var(--border); }
+  .group-heading {
+    font-size: 1.9rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    margin: 0 0 28px;
+    text-wrap: balance;
+    background: linear-gradient(90deg, var(--accent-start), var(--accent-end));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  section.topic { margin-bottom: 40px; scroll-margin-top: 20px; }
+  section.topic:last-child { margin-bottom: 0; }
+  section.topic h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0 0 12px;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  section.topic h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 22px 0 8px;
+  }
+  section.topic p { margin: 0 0 14px; font-size: 0.97rem; }
+  section.topic ul, section.topic ol { margin: 0 0 14px; padding-left: 22px; font-size: 0.97rem; }
+  section.topic li { margin-bottom: 6px; }
+  code {
+    background: var(--code-bg);
+    border-radius: 5px;
+    padding: 1px 6px;
+    font-size: 0.88em;
+    font-family: 'SF Mono', 'Cascadia Code', Consolas, monospace;
+  }
+
+  .callout {
+    border-left: 3px solid var(--accent-start);
+    background: var(--surface-alt);
+    border-radius: 0 12px 12px 0;
+    padding: 12px 16px;
+    margin: 0 0 16px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+  .callout strong { color: var(--text); }
+  .callout.highlight {
+    border-left-color: var(--accent-end);
+    background: linear-gradient(135deg, color-mix(in srgb, var(--accent-start) 10%, var(--surface-alt)), var(--surface-alt));
+  }
+
+  /* ---------- Screenshot placeholders ---------- */
+  .shot-row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin: 18px 0 22px;
+  }
+  .shot {
+    width: 168px;
+    flex-shrink: 0;
+  }
+  .shot .frame {
+    width: 168px;
+    aspect-ratio: 9 / 19.5;
+    border-radius: 18px;
+    border: 1.5px dashed var(--border);
+    background:
+      repeating-linear-gradient(135deg, transparent, transparent 7px, var(--border) 7px, var(--border) 8px),
+      var(--surface-alt);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+  }
+  .shot .frame svg { width: 26px; height: 26px; opacity: 0.5; }
+  .shot .caption {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin-top: 8px;
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  footer {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 24px 24px 56px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border);
+  }
+  footer a { color: var(--text-muted); }
+  footer p {
+    margin: 0 0 6px;
+    font-weight: 600;
+    color: var(--text);
+  }
+</style>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="logo-mark">
+      <svg viewBox="0 0 108 108" role="img" aria-label="PrepTrack logo">
+        <defs>
+          <linearGradient id="pt-logo-grad" x1="0" y1="0" x2="108" y2="108" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#667EEA"/>
+            <stop offset="1" stop-color="#764BA2"/>
+          </linearGradient>
+        </defs>
+        <rect width="108" height="108" rx="24" fill="url(#pt-logo-grad)"/>
+        <path d="M28,68 L28,74 A4,4 0 0,0 32,78 L34,78 A4,4 0 0,0 38,74 L38,68 A4,4 0 0,0 34,64 L32,64 A4,4 0 0,0 28,68 Z" fill="#FFFFFF" fill-opacity="0.55"/>
+        <path d="M44,58 L44,74 A4,4 0 0,0 48,78 L50,78 A4,4 0 0,0 54,74 L54,58 A4,4 0 0,0 50,54 L48,54 A4,4 0 0,0 44,58 Z" fill="#FFFFFF" fill-opacity="0.7"/>
+        <path d="M60,48 L60,74 A4,4 0 0,0 64,78 L66,78 A4,4 0 0,0 70,74 L70,48 A4,4 0 0,0 66,44 L64,44 A4,4 0 0,0 60,48 Z" fill="#FFFFFF" fill-opacity="0.85"/>
+        <path d="M76,38 L76,74 A4,4 0 0,0 80,78 L82,78 A4,4 0 0,0 86,74 L86,38 A4,4 0 0,0 82,34 L80,34 A4,4 0 0,0 76,38 Z" fill="#FFFFFF"/>
+        <path d="M62,33 a12,12 0 1,0 24,0 a12,12 0 1,0 -24,0 Z" fill="#FFFFFF" stroke="#4A2F8F" stroke-width="2.2"/>
+        <path d="M67,34 L72,39 L82,27" stroke="#4A2F8F" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+    </div>
+    <div class="hero-text">
+      <h1>PrepTrack User Guide</h1>
+    </div>
+    <div class="hero-links">
+      <a href="../">Privacy Policy</a>
+      <a href="mailto:support.preptrack@gmail.com">Contact support</a>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+
+  <nav class="toc" aria-label="Table of contents">
+    <details class="toc-group" open>
+      <summary>Overview</summary>
+      <ul>
+        <li><a href="#welcome">Welcome to PrepTrack</a></li>
+        <li><a href="#getting-started">Getting started</a></li>
+      </ul>
+    </details>
+    <details class="toc-group" open>
+      <summary>Your plan</summary>
+      <ul>
+        <li><a href="#timeline">Timeline &amp; tasks</a></li>
+        <li><a href="#my-plans">Managing multiple plans</a></li>
+        <li><a href="#practice">Practice &amp; Mock Tests</a></li>
+      </ul>
+    </details>
+    <details class="toc-group" open>
+      <summary>Stay organized</summary>
+      <ul>
+        <li><a href="#notes">Notes</a></li>
+        <li><a href="#resources">Resource Bank</a></li>
+      </ul>
+    </details>
+    <details class="toc-group" open>
+      <summary>Interview prep</summary>
+      <ul>
+        <li><a href="#interviews">Interview Tracker</a></li>
+        <li><a href="#focus-timer">Focus Timer</a></li>
+      </ul>
+    </details>
+    <details class="toc-group" open>
+      <summary>Track progress</summary>
+      <ul>
+        <li><a href="#reports">Reports &amp; analytics</a></li>
+        <li><a href="#reminders">Reminders &amp; notifications</a></li>
+        <li><a href="#widget">Home screen widget</a></li>
+      </ul>
+    </details>
+    <details class="toc-group" open>
+      <summary>Account &amp; data</summary>
+      <ul>
+        <li><a href="#backup">Backup &amp; sync</a></li>
+        <li><a href="#settings">Settings &amp; profile</a></li>
+        <li><a href="#privacy">Privacy</a></li>
+      </ul>
+    </details>
+  </nav>
+
+  <main>
+
+    <p class="intro-note">
+      <strong>Draft for review — screenshots pending.</strong> The dashed panels below mark where a
+      real device screenshot will go, with a caption describing exactly what to capture. Everything
+      else is final text, ready to publish once you've read through it.
+    </p>
+
+    <!-- ============ GROUP: OVERVIEW ============ -->
+    <div class="content-group" id="group-overview">
+      <h2 class="group-heading">Overview</h2>
+
+      <section class="topic" id="welcome">
+        <h3>Welcome to PrepTrack</h3>
+        <p>
+          PrepTrack is an offline-first interview-prep tracker and organizer. It breaks a study
+          roadmap into <strong>Phases → Weeks → Tasks</strong>, then wraps that structure with the
+          tools you'd otherwise juggle across separate apps: a Pomodoro focus timer, an interview
+          &amp; company journal, notes, and a reports dashboard — all pulling from the same plan, so
+          nothing needs to be re-entered twice.
+        </p>
+        <p>
+          It also ships with a starter set of practice questions, a timed mock-test mode, and a
+          curated resource library to get you going. None of these aim to be an exhaustive question
+          bank or course library — they're a foundation you're expected to extend with your own
+          questions, notes, and resources as you go.
+        </p>
+        <p>
+          Every piece of data lives in a local database on your device. There's no PrepTrack server —
+          the app works fully offline, and signing in is entirely optional. See
+          <a href="#privacy">Privacy</a> for exactly what that means.
+        </p>
+        <div class="shot-row">
+          <div class="shot">
+            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <p class="caption">Splash screen on launch</p>
+          </div>
+          <div class="shot">
+            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <p class="caption">Timeline screen, fully populated, as the "home" view</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="topic" id="getting-started">
+        <h3>Getting started</h3>
+
+        <h4>Guest mode or Google sign-in</h4>
+        <p>
+          On first launch you'll choose a language, then land on the Login screen. Every core
+          feature — Timeline, Notes, Practice, Reports, Reminders, Interview Tracking — works fully
+          as a guest, with nothing ever leaving your device. Signing in with Google adds a
+          personalized profile and optional Google Drive backup/sync. You can sign in later from
+          Profile at any time, so there's no wrong choice here.
+        </p>
+        <div class="callout highlight">
+          <strong>Why sign in?</strong> Everything above still works entirely offline, forever, as a
+          guest. But if you ever switch phones, factory-reset, or just want peace of mind, signing in
+          turns on optional Drive backup — sign in on a new device, accept the restore prompt, and
+          your full history comes back: every plan, task, note, and interview record, exactly as you
+          left it. It's free, entirely your own Google Drive storage, and never shares anything with
+          a third party. See <a href="#backup">Backup &amp; sync</a> for the details.
+        </div>
+
+        <h4>Choosing your first plan</h4>
+        <p>
+          Next you'll land on <strong>Choose a plan</strong> — a tile grid of 14 bundled templates:
+          backend tracks (Java/Spring, Python, Node.js), frontend (React, Angular), fullstack
+          combinations, DevOps/Cloud, Database, AI/ML, System Design, a fast one-month DSA cram plan,
+          and a full-length 28-week senior fullstack roadmap (also offered at a standard 13-week
+          length). Tap a tile to see its full description, week count, and tags, then tap
+          <strong>Choose this plan</strong> to build it out — every phase, week, and task is created
+          instantly. Nothing is installed until you actually pick something.
+        </p>
+        <p>
+          Prefer to build your own from scratch instead? Tap <strong>Create custom plan</strong> to
+          name it, tag it, write a short description, and define your own phases — then add weeks
+          and tasks yourself from the Timeline at whatever pace you like.
+        </p>
+        <div class="shot-row">
+          <div class="shot">
+            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <p class="caption">Choose a plan — tile grid, 2 per row</p>
+          </div>
+          <div class="shot">
+            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <p class="caption">Plan detail dialog after tapping a tile</p>
+          </div>
+          <div class="shot">
+            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <p class="caption">Start-date picker after choosing a plan</p>
+          </div>
+        </div>
+
+        <div class="callout">
+          <strong>What's the difference between a bundled and a custom plan?</strong> A bundled plan
+          comes fully built the moment you pick it. A custom plan starts as an empty skeleton (name,
+          tags, phases) that you fill in yourself. Both are edited the same way afterward — see
+          <a href="#timeline">Timeline &amp; tasks</a>.
+        </div>
+      </section>
+    </div>
+
+    <!-- ============ GROUP: YOUR PLAN ============ -->
+    <div class="content-group" id="group-your-plan">
+      <h2 class="group-heading">Your plan</h2>
+
+      <section class="topic" id="timeline">
+        <h3>Timeline &amp; tasks</h3>
+        <p>
+          Timeline is where you'll spend most of your time. It's organized top to bottom as
+          <strong>Phase → Week → Task</strong>: each phase is a colored section with its own progress
+          ring, each week is an expandable card with its own checklist and mini progress bar.
+        </p>
+
+        <h4>Checking off work</h4>
+        <p>
+          Tap a task's checkbox to mark it done — its week's, phase's, and overall progress bars
+          update instantly. <strong>Skipped</strong> is a separate status from "not done yet," for
+          tasks you've deliberately decided to drop, so your stats can tell the two apart. Checking
+          or unchecking a task never touches its notes or any focus session linked to it.
+        </p>
+
+        <h4>Adding, editing, and restructuring</h4>
+        <ul>
+          <li>Any week's <strong>⋮</strong> menu lets you add a custom task (free text + category).</li>
+          <li>Every task — seeded or your own — can be edited or permanently deleted (with a confirmation).</li>
+          <li>A phase's <strong>⋮</strong> menu can rename it, recolor it, reorder it, add a week, or
+            delete it — on a bundled plan exactly as freely as on a custom one.</li>
+        </ul>
+
+        <h4>Falling behind: Catch Up</h4>
+        <p>
+          When a week ends with pending tasks, Timeline's top bar surfaces a <strong>Catch Up</strong>
+          action. Choose to redistribute the overdue tasks into upcoming weeks, push the whole
+          remaining plan forward by a number of days, or leave them as backlog to clear manually —
+          and if you change your mind, it's fully reversible right after via an undo snackbar.
+        </p>
+
+        <div class="shot-row">
+          <div class="shot">
+            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <p class="caption">Timeline, Phase 1 expanded, a week card with mixed done/pending tasks</p>
+          </div>
+          <div class="shot">
+            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <p class="caption">Task "⋮" menu open (Edit / Delete / Focus session)</p>
+          </div>
+          <div class="shot">
+            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <p class="caption">Catch Up dialog with its three options</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="topic" id="my-plans">
+        <h3>Managing multiple plans</h3>
+        <p>
+          You can own up to 5 plans at once, from <strong>My Plans</strong> (Settings →
+          <strong>Manage plans</strong>, or the shortcut button on Timeline). Exactly one plan is
+          active at a time — Timeline, Reports, and Practice all follow whichever plan is currently
+          active. The rest sit dormant until you switch to them, and switching never deletes
+          anything: every other plan's progress, along with your Interview Tracker and notes, stays
+          exactly as you left it.
+        </p>
+        <ul>
+          <li><strong>Activate</strong> a dormant plan to make it the one Timeline shows.</li>
+          <li><strong>Pause</strong> the active plan without losing any progress on it.</li>
+          <li><strong>Delete</strong> a plan you no longer want (permanent, with confirmation).</li>
+          <li>Tap <strong>Browse plan templates</strong> from an empty or non-empty My Plans to add
+            another bundled template alongside what you already own.</li>
+        </ul>
+        <p>
+          If your only active plan is ever paused or deleted, Timeline shows a "No active plan"
+          message with a button straight back to My Plans — nothing crashes, nothing else is lost.
+        </p>
+        <div class="shot-row">
+          <div class="shot">
+            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <p class="caption">My Plans, 3 plans owned, one active/one paused/one dormant</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="topic" id="practice">
+        <h3>Practice &amp; Mock Tests</h3>
+        <p>
+          The Toolkit tab's Practice sub-tab is split into two modes. <strong>Practice mode</strong>
+          is untimed, per-topic browsing with immediate feedback — nothing is saved once you navigate
+          away, so it's meant for casual review. <strong>Mock Test mode</strong> is a timed test where
+          you pick the topic scope, duration, and question count, ending in a score and a review
+          screen — only Mock Test results are stored, and they feed directly into Reports.
+        </p>
+        <p>
+          The built-in question bank is a starting point, not full coverage of any topic — use the
+          in-app <strong>Add Question</strong> flow to grow it with your own questions as you work
+          through interviews and practice.
+        </p>
+        <p>
+          For open-ended topics like System Design with no single correct answer, you rate your own
+          confidence (1–5) after seeing a model-answer outline; a rating of 4 or 5 counts as
+          "correct" for scoring purposes.
+        </p>
+        <div class="callout">
+          <strong>Weak-area detection</strong> — Reports' "Focus areas" section flags topics where
+          your mock-test scores or self-rated confidence run low. Only topics you've actually
+          attempted show up; anything you haven't touched yet is never flagged.
+        </div>
+        <div class="shot-row">
+          <div class="shot">
+            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <p class="caption">Practice Hub, category filter dropdown open</p>
+          </div>
+          <div class="shot">
+            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <p class="caption">Topic Practice, question shown with answer revealed</p>
+          </div>
+          <div class="shot">
+            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <p class="caption">Mock Test review screen with final score</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============ GROUP: STAY ORGANIZED ============ -->
+    <div class="content-group" id="group-stay-organized">
+      <h2 class="group-heading">Stay organized</h2>
+
+      <section class="topic" id="notes">
+        <h3>Notes</h3>
+        <p>You can attach a note at four levels:</p>
+        <ul>
+          <li>On any <strong>Task</strong> — its "⋮" menu on Timeline.</li>
+          <li>On any <strong>Topic</strong> — the note icon on Topic Practice.</li>
+          <li>On an <strong>Interview Round</strong> — its Reflection field.</li>
+          <li>As a completely <strong>standalone</strong> note with its own title — the "+" button on
+            the Notes tab, for anything not tied to a specific task, topic, or round.</li>
+        </ul>
+        <p>
+          A small formatting toolbar above the content field wraps your selected text in Bold,
+          Italic, Bullet list, Code block, or one of 5 preset text colors — or type the underlying
+          markdown-lite syntax directly (<code>**bold**</code>, <code>*italic*</code>) if you prefer.
+          The Notes tab's own search icon searches note content, interview reflections, and what each
+          note is attached to (e.g. "Task: Two Pointers Practice"). Deleting or resetting a task never
+          deletes its notes — you'd delete the note itself, explicitly, from the Notes tab.
+        </p>
+        <div class="shot-row">
+          <div class="shot">
+            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <p class="caption">Notes tab — 2-column tile grid</p>
+          </div>
+          <div class="shot">
+            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <p class="caption">Note editor with formatting toolbar in use</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="topic" id="resources">
+        <h3>Resource Bank</h3>
+        <p>
+          A curated starter set of resources — courses, videos, articles, books, and tools — across
+          the topic areas in the bundled roadmap, browsable by category and searchable by title.
+          Bookmark anything with the star icon, and mark it "used/completed" once you've gone through
+          it.
+        </p>
+        <p>
+          Tap the "+" button to add your own resource — title, URL, type, and category — so the
+          library grows into whatever you personally find useful. Any resource's "⋮" menu offers
+          Delete, whether it's one you added or one that came pre-loaded (permanent, with
+          confirmation — the only way to bring a deleted pre-loaded resource back is restoring from a
+          prior backup). Book entries don't carry a web link on purpose; they show a muted "No link"
+          label instead of opening anything.
+        </p>
+        <div class="shot-row">
+          <div class="shot">
+            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <p class="caption">Resource Bank list, one bookmarked/used item visible</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============ GROUP: INTERVIEW PREP ============ -->
+    <div class="content-group" id="group-interview-prep">
+      <h2 class="group-heading">Interview prep</h2>
+
+      <section class="topic" id="interviews">
+        <h3>Interview Tracker &amp; Company Journal</h3>
+        <p>
+          Log a round with company, role, round type, scheduled date/time, format, interviewer name,
+          and status. Completing a round prompts for outcome, a free-text reflection, and any
+          questions you were asked. The <strong>Company Journal</strong> rolls up every round you've
+          logged for a company, in chronological order — your whole history with that company in one
+          place, useful to revisit before the next round.
+        </p>
+        <p>
+          Logging a scheduled round automatically offers "remind me 1 day before" / "1 hour before"
+          toggles — see <a href="#reminders">Reminders</a> for how those fire.
+        </p>
+        <div class="shot-row">
+          <div class="shot">
+            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <p class="caption">Interview Tracker, Upcoming tab</p>
+          </div>
+          <div class="shot">
+            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <p class="caption">Company Journal for one company, multiple rounds</p>
+          </div>
+          <div class="shot">
+            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <p class="caption">Round Detail — completed, with reflection filled in</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="topic" id="focus-timer">
+        <h3>Focus Timer</h3>
+        <p>
+          A Pomodoro-style timer — 25 min work / 5 min short break / 15–20 min long break by default,
+          all adjustable in Settings — that keeps running accurately even with the screen off or the
+          app backgrounded. Link a session to a specific task or topic, or leave it standalone and
+          tag it afterward. Stopping a session early doesn't lose the time: it's still logged, just
+          flagged "Interrupted" rather than "Completed."
+        </p>
+        <div class="shot-row">
+          <div class="shot">
+            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <p class="caption">Focus Timer, active countdown, task-linked</p>
+          </div>
+          <div class="shot">
+            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <p class="caption">Session history list</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============ GROUP: TRACK PROGRESS ============ -->
+    <div class="content-group" id="group-track-progress">
+      <h2 class="group-heading">Track progress</h2>
+
+      <section class="topic" id="reports">
+        <h3>Reports &amp; analytics</h3>
+        <p>
+          Five tabs — Overview, Weekly, Monthly, Phases, and Interviews — cover streaks, focus time,
+          DSA problems logged, interview funnel stats, and weak areas, plus weekly/monthly/phase-wise
+          breakdowns of tasks completed vs. planned. Everything is computed on the fly from your
+          existing data; there's no separate tracking system to keep in sync.
+        </p>
+        <p>
+          Tap <strong>Export</strong> to generate a PDF or .txt file on-device, saved anywhere via
+          Android's native "Save As" picker — any folder, Drive, or SD card, with no detour through a
+          share sheet.
+        </p>
+        <div class="shot-row">
+          <div class="shot">
+            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <p class="caption">Reports, Overview tab with Focus areas visible</p>
+          </div>
+          <div class="shot">
+            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <p class="caption">Reports, Weekly tab bar chart</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="topic" id="reminders">
+        <h3>Reminders &amp; notifications</h3>
+        <p>
+          Set multiple reminder slots (time of day, days of week, optional category filter) from
+          Settings — two are seeded by default (one weekday, one weekend). Reminders survive a device
+          reboot, and degrade gracefully to inexact alarms if you don't grant the exact-alarm
+          permission.
+        </p>
+        <p>
+          PrepTrack also sends streak-milestone notifications (3/7/14/30/50/100 days), phase-completion
+          celebrations, and a "your weekly report is ready" nudge — all scheduled locally on your
+          device, never pushed from a server.
+        </p>
+        <div class="shot-row">
+          <div class="shot">
+            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <p class="caption">Reminder slots list in Settings</p>
+          </div>
+          <div class="shot">
+            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <p class="caption">A streak-milestone notification</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="topic" id="widget">
+        <h3>Home screen widget</h3>
+        <p>
+          Add the PrepTrack widget from your device's widget picker to see, at a glance: today's
+          date, how many tasks are due today (with up to 3 shown as checkboxes right on the widget),
+          your current streak, and — if one's scheduled in the next 48 hours — a highlighted upcoming
+          interview. Tapping any part of it opens the app to the relevant screen.
+        </p>
+        <div class="shot-row">
+          <div class="shot">
+            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <p class="caption">Home screen with the widget placed, tasks + streak visible</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============ GROUP: ACCOUNT & DATA ============ -->
+    <div class="content-group" id="group-account-data">
+      <h2 class="group-heading">Account &amp; data</h2>
+
+      <section class="topic" id="backup">
+        <h3>Backup &amp; sync</h3>
+        <p>
+          Nothing is backed up anywhere by default — everything lives locally until you choose
+          otherwise. A manual export (a single JSON file, saved wherever you like) is always
+          available offline, signed in or not.
+        </p>
+        <p>
+          Signing in adds an <strong>opt-in</strong> backup to your own Google Drive account,
+          invisible in your normal Drive UI, so signing in on a new device and restoring brings back
+          your full history. Choose how often it runs in Settings: after every change, every 15
+          minutes, hourly, daily, weekly, or manual-only — changeable anytime, with a "Sync now"
+          action that always works regardless of tier. Signing out only stops future syncs; it never
+          deletes anything already on your device.
+        </p>
+        <div class="shot-row">
+          <div class="shot">
+            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <p class="caption">Settings — Drive sync toggle + frequency picker</p>
+          </div>
+          <div class="shot">
+            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <p class="caption">Manual JSON export "Save As" picker</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="topic" id="settings">
+        <h3>Settings &amp; profile</h3>
+        <ul>
+          <li><strong>Theme</strong> — Light, Dark, or System, with Material You dynamic color on
+            devices that support it.</li>
+          <li><strong>Manage plans</strong> — opens My Plans (see <a href="#my-plans">above</a>).</li>
+          <li><strong>Regenerate plan dates</strong> — recomputes every week's dates from a
+            newly-chosen start date, with your task history, notes, and focus sessions completely
+            unaffected.</li>
+          <li><strong>Language</strong> — English or हिन्दी, switchable anytime; changes apply
+            instantly, no restart needed.</li>
+          <li><strong>Profile</strong> — edit your display name/photo locally, independent of your
+            Google account's own values, with a reset-to-default option.</li>
+        </ul>
+        <div class="shot-row">
+          <div class="shot">
+            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <p class="caption">Settings screen, top-level list</p>
+          </div>
+          <div class="shot">
+            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <p class="caption">Profile screen</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="topic" id="privacy">
+        <h3>Privacy</h3>
+        <p>
+          PrepTrack has no analytics or telemetry SDK of any kind. Signing in reads only your Google
+          account's name, email, and photo to show your profile — that data stays on your device. If
+          you enable Drive backup, PrepTrack requests Drive's private <code>appDataFolder</code>
+          scope only, a hidden folder no other app (including Drive's own app) can browse.
+        </p>
+        <p>
+          Read the full policy at <a href="../">the Privacy Policy page</a>, or in-app from
+          Profile → Privacy Policy.
+        </p>
+      </section>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <p>PrepTrack — Last updated: August 18, 2026</p>
+  Questions this guide didn't answer? Check the in-app FAQ (Profile → Help &amp; Support) or email
+  <a href="mailto:support.preptrack@gmail.com">support.preptrack@gmail.com</a>.
+</footer>
