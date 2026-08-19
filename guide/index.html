@@ -248,20 +248,13 @@
     width: 168px;
     flex-shrink: 0;
   }
-  .shot .frame {
+  .shot img {
     width: 168px;
-    aspect-ratio: 9 / 19.5;
     border-radius: 18px;
-    border: 1.5px dashed var(--border);
-    background:
-      repeating-linear-gradient(135deg, transparent, transparent 7px, var(--border) 7px, var(--border) 8px),
-      var(--surface-alt);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-muted);
+    border: 1px solid var(--border);
+    display: block;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.28);
   }
-  .shot .frame svg { width: 26px; height: 26px; opacity: 0.5; }
   .shot .caption {
     font-size: 0.72rem;
     color: var(--text-muted);
@@ -367,12 +360,6 @@
 
   <main>
 
-    <p class="intro-note">
-      <strong>Draft for review — screenshots pending.</strong> The dashed panels below mark where a
-      real device screenshot will go, with a caption describing exactly what to capture. Everything
-      else is final text, ready to publish once you've read through it.
-    </p>
-
     <!-- ============ GROUP: OVERVIEW ============ -->
     <div class="content-group" id="group-overview">
       <h2 class="group-heading">Overview</h2>
@@ -399,12 +386,12 @@
         </p>
         <div class="shot-row">
           <div class="shot">
-            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-            <p class="caption">Splash screen on launch</p>
+            <img src="images/welcome-login.png" alt="PrepTrack Login screen with Continue as Guest and Sign in with Google">
+            <p class="caption">Login screen on first launch</p>
           </div>
           <div class="shot">
-            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-            <p class="caption">Timeline screen, fully populated, as the "home" view</p>
+            <img src="images/timeline-phase-expanded.png" alt="Timeline screen with Phase 1 expanded and a week of tasks">
+            <p class="caption">Timeline — the "home" view once a plan is active</p>
           </div>
         </div>
       </section>
@@ -428,6 +415,12 @@
           left it. It's free, entirely your own Google Drive storage, and never shares anything with
           a third party. See <a href="#backup">Backup &amp; sync</a> for the details.
         </div>
+        <div class="shot-row">
+          <div class="shot">
+            <img src="images/profile-screen.png" alt="Profile screen as a guest, with Sign in with Google and the sync-benefit message">
+            <p class="caption">Profile screen — the sign-in prompt guests see</p>
+          </div>
+        </div>
 
         <h4>Choosing your first plan</h4>
         <p>
@@ -446,15 +439,15 @@
         </p>
         <div class="shot-row">
           <div class="shot">
-            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <img src="images/choose-plan-grid.png" alt="Choose a plan screen — tile grid of bundled templates, 2 per row">
             <p class="caption">Choose a plan — tile grid, 2 per row</p>
           </div>
           <div class="shot">
-            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <img src="images/choose-plan-detail-dialog.png" alt="Plan detail dialog with full description, tags and a Choose this plan button">
             <p class="caption">Plan detail dialog after tapping a tile</p>
           </div>
           <div class="shot">
-            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <img src="images/choose-plan-start-date.png" alt="Start date picker shown after choosing a plan">
             <p class="caption">Start-date picker after choosing a plan</p>
           </div>
         </div>
@@ -506,15 +499,15 @@
 
         <div class="shot-row">
           <div class="shot">
-            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-            <p class="caption">Timeline, Phase 1 expanded, a week card with mixed done/pending tasks</p>
+            <img src="images/timeline-phase-expanded.png" alt="Timeline with Phase 1 expanded and a week card showing mixed done and pending tasks">
+            <p class="caption">Phase 1 expanded, a week with mixed done/pending tasks</p>
           </div>
           <div class="shot">
-            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-            <p class="caption">Task "⋮" menu open (Edit / Delete / Focus session)</p>
+            <img src="images/timeline-task-menu.png" alt="Task options menu open with Start Focus Session, Mark skipped, Edit, Note, Delete">
+            <p class="caption">A task's "⋮" menu</p>
           </div>
           <div class="shot">
-            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <img src="images/timeline-catchup-dialog.png" alt="Catch Up dialog with redistribute, push forward, and leave as backlog options">
             <p class="caption">Catch Up dialog with its three options</p>
           </div>
         </div>
@@ -543,8 +536,8 @@
         </p>
         <div class="shot-row">
           <div class="shot">
-            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-            <p class="caption">My Plans, 3 plans owned, one active/one paused/one dormant</p>
+            <img src="images/my-plans-list.png" alt="My Plans screen with three owned plans, one Active and two Dormant">
+            <p class="caption">My Plans — 3 plans owned, one Active, two Dormant</p>
           </div>
         </div>
       </section>
@@ -575,16 +568,24 @@
         </div>
         <div class="shot-row">
           <div class="shot">
-            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-            <p class="caption">Practice Hub, category filter dropdown open</p>
+            <img src="images/practice-hub-list.png" alt="Practice Hub with Start Mock Test button and category list">
+            <p class="caption">Practice Hub</p>
           </div>
           <div class="shot">
-            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-            <p class="caption">Topic Practice, question shown with answer revealed</p>
+            <img src="images/practice-category-filter.png" alt="Practice category filter dropdown open, multi-select checkboxes">
+            <p class="caption">Category filter dropdown</p>
           </div>
           <div class="shot">
-            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-            <p class="caption">Mock Test review screen with final score</p>
+            <img src="images/practice-topic-question.png" alt="Topic Practice question with the correct answer revealed and an explanation">
+            <p class="caption">Topic Practice, answer revealed</p>
+          </div>
+          <div class="shot">
+            <img src="images/practice-mocktest-setup.png" alt="Mock Test setup dialog with topic scope, duration and question count fields">
+            <p class="caption">Mock Test setup</p>
+          </div>
+          <div class="shot">
+            <img src="images/practice-mocktest-review.png" alt="Mock Test review screen with final score, topic and time taken">
+            <p class="caption">Mock Test review screen</p>
           </div>
         </div>
       </section>
@@ -614,12 +615,8 @@
         </p>
         <div class="shot-row">
           <div class="shot">
-            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-            <p class="caption">Notes tab — 2-column tile grid</p>
-          </div>
-          <div class="shot">
-            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-            <p class="caption">Note editor with formatting toolbar in use</p>
+            <img src="images/notes-editor-toolbar.png" alt="Note editor with a Bold/Italic/Bullet/Code/Color formatting toolbar above the content field">
+            <p class="caption">Note editor with formatting toolbar</p>
           </div>
         </div>
       </section>
@@ -642,8 +639,8 @@
         </p>
         <div class="shot-row">
           <div class="shot">
-            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-            <p class="caption">Resource Bank list, one bookmarked/used item visible</p>
+            <img src="images/resources-list.png" alt="Resource Bank list with category filter, one bookmarked and used item visible">
+            <p class="caption">Resource Bank, one bookmarked item</p>
           </div>
         </div>
       </section>
@@ -668,16 +665,8 @@
         </p>
         <div class="shot-row">
           <div class="shot">
-            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <img src="images/interviews-empty.png" alt="Interview Tracker Upcoming tab, with a Tap + to schedule one prompt">
             <p class="caption">Interview Tracker, Upcoming tab</p>
-          </div>
-          <div class="shot">
-            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-            <p class="caption">Company Journal for one company, multiple rounds</p>
-          </div>
-          <div class="shot">
-            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-            <p class="caption">Round Detail — completed, with reflection filled in</p>
           </div>
         </div>
       </section>
@@ -693,12 +682,12 @@
         </p>
         <div class="shot-row">
           <div class="shot">
-            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-            <p class="caption">Focus Timer, active countdown, task-linked</p>
+            <img src="images/focus-timer-active.png" alt="Focus Timer active countdown showing Session 1 of 4 with pause, skip, and stop controls">
+            <p class="caption">Active countdown</p>
           </div>
           <div class="shot">
-            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-            <p class="caption">Session history list</p>
+            <img src="images/focus-session-history.png" alt="Recent sessions list showing one interrupted focus session">
+            <p class="caption">Session history</p>
           </div>
         </div>
       </section>
@@ -723,12 +712,12 @@
         </p>
         <div class="shot-row">
           <div class="shot">
-            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-            <p class="caption">Reports, Overview tab with Focus areas visible</p>
+            <img src="images/reports-overview.png" alt="Reports Overview tab with This plan, Focus time, and Interview funnel cards">
+            <p class="caption">Reports, Overview tab</p>
           </div>
           <div class="shot">
-            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-            <p class="caption">Reports, Weekly tab bar chart</p>
+            <img src="images/reports-weekly.png" alt="Reports Weekly tab">
+            <p class="caption">Reports, Weekly tab</p>
           </div>
         </div>
       </section>
@@ -748,12 +737,8 @@
         </p>
         <div class="shot-row">
           <div class="shot">
-            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-            <p class="caption">Reminder slots list in Settings</p>
-          </div>
-          <div class="shot">
-            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-            <p class="caption">A streak-milestone notification</p>
+            <img src="images/settings-list.png" alt="Settings screen showing two reminder slots, 7am weekdays and 9am weekends, each toggled on">
+            <p class="caption">Reminder slots in Settings</p>
           </div>
         </div>
       </section>
@@ -766,12 +751,6 @@
           your current streak, and — if one's scheduled in the next 48 hours — a highlighted upcoming
           interview. Tapping any part of it opens the app to the relevant screen.
         </p>
-        <div class="shot-row">
-          <div class="shot">
-            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-            <p class="caption">Home screen with the widget placed, tasks + streak visible</p>
-          </div>
-        </div>
       </section>
     </div>
 
@@ -796,12 +775,12 @@
         </p>
         <div class="shot-row">
           <div class="shot">
-            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-            <p class="caption">Settings — Drive sync toggle + frequency picker</p>
+            <img src="images/settings-list.png" alt="Settings screen with the Sync to Google Drive toggle under Drive cloud sync">
+            <p class="caption">Settings — Drive sync toggle</p>
           </div>
           <div class="shot">
-            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-            <p class="caption">Manual JSON export "Save As" picker</p>
+            <img src="images/backup-export.png" alt="Backup and restore section with Export data and Import data buttons">
+            <p class="caption">Backup &amp; restore — Export/Import</p>
           </div>
         </div>
       </section>
@@ -822,11 +801,11 @@
         </ul>
         <div class="shot-row">
           <div class="shot">
-            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-            <p class="caption">Settings screen, top-level list</p>
+            <img src="images/backup-settings.png" alt="Settings Theme section with Light, Dark, and System options">
+            <p class="caption">Theme setting</p>
           </div>
           <div class="shot">
-            <div class="frame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <img src="images/profile-screen.png" alt="Profile screen with Settings, FAQ, Help & Support, Contact us, and Privacy Policy rows">
             <p class="caption">Profile screen</p>
           </div>
         </div>
